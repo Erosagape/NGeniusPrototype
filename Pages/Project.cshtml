@@ -1,0 +1,39 @@
+﻿@page
+@model Prototype.Pages.ProjectModel
+@{
+    ViewData["Title"] = "Projects";
+}
+<div class="text-left">
+    <h1>Projects</h1>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Transaction Type :</td>
+                <td>
+                    <select name="action" id="cboAction">
+                        <option value="SALE">SALES INVOICE</option>
+                        <option value="PURCHASE">PURCHASE INVOICE</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Currency :
+                </td>
+                <td>
+                    <input type="text" id="txtCurrency" name="currencyCode" value="GNF" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Value :
+                </td>
+                <td>
+                    <input type="number" id="txtAmount" name="amount" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit" asp-page-handler="Submit" />
+    </form>
+    @Html.Raw(Model.Message)
+</div>

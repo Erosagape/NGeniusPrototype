@@ -1,0 +1,25 @@
+﻿@page
+@model Prototype.Pages.PaymentModel
+<h1>Card Payment</h1>
+<form method="post">
+    <input type="hidden" name="action" value="SALE" />
+    <br />
+    Currency : <input type="text" id="txtCurrency" name="currencyCode" value="GNF" readonly />
+    <br />
+    Amount : <input type="number" id="txtAmount" name="amount" />
+    <br />
+    Card Number :
+    <input type="text" id="txtCardNumber" name="pan" />
+    <br />
+    Expiry :
+    <input type="text" id="txtExpiry" name="expiry" />
+    <br />
+    CVV :
+    <input type="password" id="txtCVV" name="cvv" />
+    <br />
+    Card Holder Name :
+    <input type="text" id="txtCardholder" name="cardholderName" />
+    <br />
+    <input type="submit" asp-page-handler="Submit" value="Submit" />
+</form>
+<b>@Html.Raw(ViewData["Message"])</b>

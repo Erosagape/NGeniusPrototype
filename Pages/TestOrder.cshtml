@@ -1,0 +1,88 @@
+﻿@page
+@model Prototype.Pages.TestOrderModel
+@{
+}
+<form method="post">
+    <textarea id="txtValue" name="dataPost"></textarea>
+    <input type="submit" asp-page-handler="Submit" value="Submit" />
+</form>
+@ViewData["Message"]
+<script type="text/javascript">
+    var obj = {
+        "_id": "urn:order:b185dd9d-385a-4681-8a91-fdf6dd21b851",
+        "_links": {
+            "cancel": {
+                "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/orders/b185dd9d-385a-4681-8a91-fdf6dd21b851/cancel"
+            },
+            "cnp:payment-link": {
+                "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/orders/b185dd9d-385a-4681-8a91-fdf6dd21b851/payment-link"
+            },
+            "payment-authorization": {
+                "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/paymentAuthorization"
+            },
+            "self": {
+                "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/orders/b185dd9d-385a-4681-8a91-fdf6dd21b851"
+            },
+            "tenant-brand": {
+                "href": "http://config-service/config/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/configs/tenant-brand"
+            },
+            "payment": {
+                "href": "https://paypage.sandbox.orabankgn.ngenius-payments.com/?code=abbb39e0c638b7e3"
+            },
+            "merchant-brand": {
+                "href": "http://config-service/config/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/configs/merchant-brand"
+            }
+        },
+        "type": "SINGLE",
+        "merchantDefinedData": {},
+        "action": "SALE",
+        "amount": {
+            "currencyCode": "GNF",
+            "value": 100
+        },
+        "language": "en",
+        "merchantAttributes": {},
+        "reference": "b185dd9d-385a-4681-8a91-fdf6dd21b851",
+        "outletId": "4150ebb0-7167-4c8f-a104-ab24cb295964",
+        "createDateTime": "2024-02-10T07:49:08.904Z",
+        "paymentMethods": {
+            "card": [
+                "MASTERCARD",
+                "VISA"
+            ]
+        },
+        "referrer": "urn:Ecom:b185dd9d-385a-4681-8a91-fdf6dd21b851",
+        "formattedAmount": "GNF 100",
+        "formattedOrderSummary": {},
+        "_embedded": {
+            "payment": [{
+                "_id": "urn:payment:1a1b6c36-41ce-4a90-8e73-94d9ffb7749f",
+                "_links": {
+                    "self": {
+                        "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/orders/b185dd9d-385a-4681-8a91-fdf6dd21b851/payments/1a1b6c36-41ce-4a90-8e73-94d9ffb7749f"
+                    },
+                    "payment:card": {
+                        "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/transactions/outlets/4150ebb0-7167-4c8f-a104-ab24cb295964/orders/b185dd9d-385a-4681-8a91-fdf6dd21b851/payments/1a1b6c36-41ce-4a90-8e73-94d9ffb7749f/card"
+                    },
+                    "curies": [{
+                        "name": "cnp",
+                        "href": "https://api-gateway.sandbox.orabankgn.ngenius-payments.com/docs/rels/{rel}",
+                        "templated": true
+                    }]
+                },
+                "reference": "1a1b6c36-41ce-4a90-8e73-94d9ffb7749f",
+                "state": "STARTED",
+                "amount": {
+                    "currencyCode": "GNF",
+                    "value": 100
+                },
+                "updateDateTime": "2023-02-10T07:49:08.904Z",
+                "outletId": "4150ebb0-7167-4c8f-a104-ab24cb295964",
+                "orderReference": "b185dd9d-385a-4681-8a91-fdf6dd21b851"
+            }]
+        }
+    }
+
+    var json = JSON.stringify(obj);
+    document.getElementById("txtValue").value = json;
+</script>
