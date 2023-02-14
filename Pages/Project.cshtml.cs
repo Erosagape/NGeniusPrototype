@@ -36,6 +36,8 @@ namespace Prototype.Pages
             NGeniusOrder orderCreate=new NGeniusOrder();
             string msg = "";
             bool chk=_ngenius.CreateOrder(order,ref orderCreate,ref msg);
+            var err = new NGeniusErrorResponse();
+            if (chk) _ngenius.SaveOrder(orderCreate, ref err);
             Message = (chk? @"OK=<a href=""" + orderCreate._links.payment.href +@""">"+ orderCreate._links.payment.href + "</a>" :"ERROR=" + msg);
         }
     }

@@ -50,6 +50,12 @@ namespace Prototype.Pages
         public LinkStruct payment_card { get; set; }
         public List<NGeniusCuries> curies { get; set; }
     }
+    public class NGenius3DSPaymentInfo
+    {
+        public string messageVersion { get; set; }
+        public string threeDSServerTransID { get; set; }
+        public string directoryServerID { get; set; }
+    }
     public class NGeniusPayment
     {
         public string _id { get; set; }
@@ -60,5 +66,8 @@ namespace Prototype.Pages
         public string updateDateTime { get; set; }
         public string outletId { get; set; }
         public string orderReference { get; set; }
+        public string authenticationCode { get; set; }
+        [JsonPropertyName("3ds2")]
+        public NGenius3DSPaymentInfo threeDSInfo { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace Prototype
 {
     public class NGeniusConfig
     {
+        public string MainConnection { get; set; }
         public string TokenRequestURL { get; set; }
         public string OrderURL { get; set; }
         public string CardPaymentURL { get; set; }

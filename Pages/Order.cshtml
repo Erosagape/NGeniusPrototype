@@ -1,7 +1,42 @@
 ﻿@page
 @model Prototype.Pages.OrderModel
-<h1>Order</h1>
-@{
-    <b>@ViewData["Message"]</b>
-}
-
+<h1>Order List</h1>
+<form method="post">
+    @{
+        <b>@ViewData["Message"]</b>
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Link Payment</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var dt = (System.Data.DataTable)ViewData["DataSource"];
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        <tr>
+                            <td>@dr["transType"].ToString()</td>
+                            <td>@dr["amountValue"].ToString() @dr["currencyCode"].ToString()</td>
+                            <td><a href="@dr["requestURL"].ToString()">@dr["orderRef"].ToString()</a></td>
+                            <td>
+                                @dr["status"].ToString()
+                            </td>
+                            <td><input type="submit" class="btn btn-primary" asp-page-handler="Submit" onclick="SetFormValue('@dr["orderRef"].ToString()')" value="Check" /></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="txtOrderID" name="OrderID" value="" />
+    }
+</form>
+<script type="text/javascript">
+    function SetFormValue(str) {
+        document.getElementById("txtOrderID").setAttribute("value", str);
+    }
+</script>

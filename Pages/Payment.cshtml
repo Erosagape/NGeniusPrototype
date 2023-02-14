@@ -1,25 +1,38 @@
 ﻿@page
 @model Prototype.Pages.PaymentModel
-<h1>Card Payment</h1>
+<h1>Donation Payment</h1>
 <form method="post">
     <input type="hidden" name="action" value="SALE" />
-    <br />
-    Currency : <input type="text" id="txtCurrency" name="currencyCode" value="GNF" readonly />
-    <br />
-    Amount : <input type="number" id="txtAmount" name="amount" />
-    <br />
-    Card Number :
-    <input type="text" id="txtCardNumber" name="pan" />
-    <br />
-    Expiry :
-    <input type="text" id="txtExpiry" name="expiry" />
-    <br />
-    CVV :
-    <input type="password" id="txtCVV" name="cvv" />
-    <br />
-    Card Holder Name :
-    <input type="text" id="txtCardholder" name="cardholderName" />
-    <br />
+    <table>
+        <tr>
+            <td>Currency : </td>
+            <td><input type="text" id="txtCurrency" name="currencyCode" value="GNF"/></td>
+        </tr>
+        <tr>
+            <td>Amount : </td>
+            <td><input type="number" id="txtAmount" name="amount" /></td>
+        </tr>
+        <tr>
+            <td>Card Number :</td>
+            <td>
+                <input type="text" id="txtCardNumber" name="pan" />
+            </td>
+        </tr>
+        <tr>
+            <td>Expiry :</td>
+            <td>
+                <input type="text" id="txtExpiry" name="expiry" />
+            </td>
+        </tr>
+        <tr>
+            <td>CVV :</td>
+            <td><input type="password" id="txtCVV" name="cvv" /></td>
+        </tr>
+        <tr>
+            <td>Card Holder Name :</td>
+            <td><input type="text" id="txtCardholder" name="cardholderName" /></td>
+        </tr>
+    </table>
     <input type="submit" asp-page-handler="Submit" value="Submit" />
 </form>
 <b>@Html.Raw(ViewData["Message"])</b>
