@@ -154,8 +154,8 @@ namespace Prototype
                     {
                         pan = payment.pan,
                         expiry = payment.expiry,
-                        cardholderName = payment.cardholderName,
-                        cvv = payment.cvv
+                        cvv = payment.cvv,
+                        cardholderName = payment.cardholderName
                     }
                 };
                 string json = JsonSerializer.Serialize(p);

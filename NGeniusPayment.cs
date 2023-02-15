@@ -19,6 +19,14 @@ namespace Prototype.Pages
         public string cvv { get; set; }
         public string cardholderName { get; set; }
     }
+    public class CardPaymentMethod
+    {
+        public string expiry { get; set; }
+        public string cardholderName { get; set; }
+        public string name { get; set; }
+        public string pan { get; set; }
+        public string cvv { get; set; }
+    }
     public class CardPaymentParams
     {
         [BindProperty]
@@ -45,14 +53,19 @@ namespace Prototype.Pages
     }
     public class NGeniusPaymentLinks
     {
+        [JsonPropertyName("cnp:3ds2-challenge-response")]
+        public LinkStruct threeDS_challenge_response { get;set;}
         public LinkStruct self { get; set; }
         [JsonPropertyName("payment:card")]
-        public LinkStruct payment_card { get; set; }
+        public CardPaymentRequest payment_card { get; set; }
+        [JsonPropertyName("cnp:3ds2-authentication")]
+        public LinkStruct threeDS_authentication { get; set; }
         public List<NGeniusCuries> curies { get; set; }
     }
     public class NGenius3DSPaymentInfo
     {
         public string messageVersion { get; set; }
+        public string threeDSMethodURL { get; set; }
         public string threeDSServerTransID { get; set; }
         public string directoryServerID { get; set; }
     }
@@ -61,6 +74,7 @@ namespace Prototype.Pages
         public string _id { get; set; }
         public NGeniusPaymentLinks _links { get; set; }
         public string reference { get; set; }
+        public CardPaymentMethod paymentMethod { get; set; }
         public string state { get; set; }
         public AmountStruct amount { get; set; }
         public string updateDateTime { get; set; }
